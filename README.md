@@ -7,7 +7,7 @@ This is a project developed by XXX and YYY as the project for the second module 
 ---
 
 ## Wireframes
-![](docs/wireframes.png)
+![](docs/IronPictureFigma.png)
 
 ---
 
