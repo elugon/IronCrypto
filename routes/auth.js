@@ -25,6 +25,23 @@ router.get('/login', async (req, res, next) => {
 router.post('/signup', async (req, res, next) => {
   const { email, password, username } = req.body;
   // ⚠️ Add validations!
+
+  // Check if user introduced all values
+  if (!email || !password || !username) {
+    res.render("auth/signup", {
+      error: "All fields are mandatory. Please fill them before submitting.",
+    });
+    return;
+  }
+  // Check is password meets requirements
+  const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+  if (!regex.test(password)) {
+    res.render("auth/signup", {
+      error:
+        "Password must have lowercase letters, uppercase letters and at least one number.",
+    });
+    return;
+  }
   try {
     const salt = await bcrypt.genSalt(saltRounds);
     const hashedPassword = await bcrypt.hash(password, salt);
