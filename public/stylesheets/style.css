@@ -3,3 +3,16 @@ body {
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+h1{
+  margin-left: 28px;
+  margin-top: 80px;
+  font-size: 32px;
+}
+
+#logo {
+  width: 375px;
+  height: 176px;
+  margin-left: 35px;
+  margin-top: 174px;
+}
