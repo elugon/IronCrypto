@@ -23,22 +23,30 @@ router.get('/login', async (req, res, next) => {
 // @route   POST /auth/signup
 // @access  Public
 router.post('/signup', async (req, res, next) => {
-  const { email, password, username } = req.body;
+  const { email, password,passwordConfirmation, username } = req.body;
   // ⚠️ Add validations!
 
   // Check if user introduced all values
-  if (!email || !password || !username) {
+  if (!email || !password || !passwordConfirmation || !username) {
     res.render("auth/signup", {
       error: "All fields are mandatory. Please fill them before submitting.",
     });
     return;
   }
-  // Check is password meets requirements
+  // Check if password meets requirements
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
-  if (!regex.test(password)) {
+  if (!regex.test(password)||!regex.test(passwordConfirmation)) {
     res.render("auth/signup", {
       error:
         "Password must have lowercase letters, uppercase letters and at least one number.",
+    });
+    return;
+    }
+    // Check if password and passwordConfirmation are equal
+  if (password!==passwordConfirmation) {
+    res.render("auth/signup", {
+      error:
+        "Password and password confirmation are NOT equal",
     });
     return;
   }
