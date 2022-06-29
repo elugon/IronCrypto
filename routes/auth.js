@@ -66,6 +66,12 @@ router.post('/signup', async (req, res, next) => {
 router.post('/login', async (req, res, next) => {
   const { email, password } = req.body;
   // ⚠️ Add more validations!
+  if (!password || !email) {
+    res.render("auth/login", {
+      error: "All fields are mandatory. Please fill them before submitting.",
+    });
+    return;
+  }
   try {
     // Remember to assign user to session cookie:
     const user = await User.findOne({ email: email });
@@ -76,7 +82,7 @@ router.post('/login', async (req, res, next) => {
       const match = await bcrypt.compare(password, user.hashedPassword);
       if (match) {
         req.session.currentUser = user;
-        res.redirect('/');
+        res.redirect('/favorites');
       } else {
         res.render('auth/login', { error: "Unable to authenticate user" });
       }
