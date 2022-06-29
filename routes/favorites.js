@@ -7,7 +7,7 @@ const CoinGeckoClient = new CoinGecko();
 
 
 
-router.get('/', async (req, res, next) => {  
+router.get('/', isLoggedIn, async (req, res, next) => {  
          
     try {
         let btc = [967.6,957.02,190.78];
