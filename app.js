@@ -12,6 +12,7 @@ const MongoStore = require('connect-mongo');
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const favoritesRouter = require ('./routes/favorites')
+const profileRouter = require ('./routes/profile')
 
 const app = express();
 
@@ -49,7 +50,8 @@ app.set('view engine', 'hbs');
 // routes intro
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-app.use('/favorites', favoritesRouter)
+app.use('/favorites', favoritesRouter);
+app.use ('/profile', profileRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
