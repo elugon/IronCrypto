@@ -14,11 +14,11 @@ router.get('/:userId',isLoggedIn, async (req, res, next) => {
     }    
   });
 
-  router.get ('/edit-profile/:userId', async (req, res, next) => {
+  router.get ('/edit-profile/:userId', isLoggedIn, async (req, res, next) => {
     const { userId } = req.params;
     try {
         const user = await User.findById(userId);
-        res.render('auth/edit-profile', user);
+        res.render('auth/edit-profile', {user});
     } catch (error) {
         next(error)
         
