@@ -10,8 +10,16 @@
 
 
 {{!-- /<p>data.market_data.current_price.usd</p> --}}
-<div>
+
+{{#each data}}
+
+<p>{{data.id}}</p>
+
+{{/each}}
+
+
+{{!-- <div>
 {{user.username}}
-</div>
+</div> --}}
 
 <a href = "/profile/{{this.user._id}}">Profile</a>

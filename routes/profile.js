@@ -26,9 +26,15 @@ router.get('/:userId',isLoggedIn, async (req, res, next) => {
 
   });
 
-  router.post ('/edit-profile/:userId', async (req, res, next) => {
+  router.post ('/edit-profile/:userId', isLoggedIn, async (req, res, next) => {
     const { userId } = req.params;
     const {username, email} = req.body;
+    // // if (!username || !email) {
+    // //     res.render("/edit-profile/:userId", {
+    // //       error: "All fields are mandatory. Please fill them before submitting.",
+    // //     });
+    // //     return;
+    // }    
     try {
         const updateUser = await User.findByIdAndUpdate(userId, {username, email}, {new: true});
         console.log('Updated:', updateUser)
@@ -39,7 +45,7 @@ router.get('/:userId',isLoggedIn, async (req, res, next) => {
     }
   });
 
-  router.post ('delete/userId', async (req, res, next) => {
+  router.post ('delete/userId',isLoggedIn, async (req, res, next) => {
     const { userId } = req.params;
     try {
         await User.findByIdAndDelete(userId)

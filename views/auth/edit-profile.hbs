@@ -2,12 +2,17 @@
 
 <form action = "/profile/edit-profile/{{this.user._id}}" method="POST">
 
+<div>
 <label>Username</label>
 <input type ='text' name = 'username' value = '{{user.username}}'>
+</div>
 
+<div>
 <label>Email</label>
 <input type ='text' name = 'email' value = '{{user.email}}'>
+</div>
 
-<button type = "submit"> Edit profile</button>
+
+<button class="button" type = "submit"> Edit profile</button>
 
 </form>
