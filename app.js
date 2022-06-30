@@ -13,6 +13,7 @@ const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const favoritesRouter = require ('./routes/favorites')
 const profileRouter = require ('./routes/profile')
+const selectFavoritesRouter = require ('./routes/select-favorites')
 
 const app = express();
 
@@ -51,6 +52,7 @@ app.set('view engine', 'hbs');
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/favorites', favoritesRouter);
+app.use('/select-favorites', selectFavoritesRouter);
 app.use('/profile', profileRouter);
 
 // catch 404 and forward to error handler
