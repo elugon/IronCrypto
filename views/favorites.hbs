@@ -11,9 +11,9 @@
 
 {{!-- /<p>data.market_data.current_price.usd</p> --}}
 
-{{#each data}}
+{{#each data.data}}
 
-<p>{{data.id}}</p>
+<p>{{id}}</p>
 
 {{/each}}
 
@@ -22,4 +22,4 @@
 {{user.username}}
 </div> --}}
 
-<a href = "/profile/{{this.user._id}}">Profile</a>
+<a href = "/profile">Profile</a>

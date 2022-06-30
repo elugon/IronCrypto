@@ -24,7 +24,6 @@ router.get('/login', async (req, res, next) => {
 // @access  Public
 router.post('/signup', async (req, res, next) => {
   const { email, password,passwordConfirmation, username } = req.body;
-  // ⚠️ Add validations!
 
   // Check if user introduced all values
   if (!email || !password || !passwordConfirmation || !username) {
@@ -50,6 +49,7 @@ router.post('/signup', async (req, res, next) => {
     });
     return;
   }
+
   try {
     const salt = await bcrypt.genSalt(saltRounds);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -65,7 +65,6 @@ router.post('/signup', async (req, res, next) => {
 // @access  Public
 router.post('/login', async (req, res, next) => {
   const { email, password } = req.body;
-  // ⚠️ Add more validations!
   if (!password || !email) {
     res.render("auth/login", {
       error: "All fields are mandatory. Please fill them before submitting.",
