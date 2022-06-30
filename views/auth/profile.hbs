@@ -1,1 +1,8 @@
-<h1>Welcome {{ username }}</h1>
+<h1>Welcome {{userFromDB.username}}</h1>
+
+<p>This is your profile page</p>
+
+<p>Your current email is {{userFromDB.email}}</p>
+
+
+<a href = "/profile/edit-profile/{{this.userFromDB._id}}">Edit Profile</a>

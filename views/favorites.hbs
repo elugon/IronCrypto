@@ -3,10 +3,23 @@
 <!-- width, height and stroke-width attributes must be defined on the target SVG -->
 {{!-- <svg class="sparkline" width="100" height="30" stroke-width="3"></svg> --}}
 
-<svg class="btc" width="100" height="20" stroke-width="2" stroke="blue" fill="rgba(0, 0, 255, .2)"></svg>
+{{!-- <svg class="btc" width="100" height="20" stroke-width="2" stroke="blue" fill="rgba(0, 0, 255, .2)"></svg> --}}
 
 
 {{!-- <p>{{data.market_data.current_price.usd}}</p> --}}
 
 
 {{!-- /<p>data.market_data.current_price.usd</p> --}}
+
+{{#each data.data}}
+
+<p>{{id}}</p>
+
+{{/each}}
+
+
+{{!-- <div>
+{{user.username}}
+</div> --}}
+
+<a href = "/profile">Profile</a>
