@@ -3,6 +3,8 @@ const CoinGecko = require('coingecko-api');
 const User = require('../models/User');
 const CoinGeckoClient = new CoinGecko();
 
+
+
 router.get('/', isLoggedIn, async (req, res, next) => {  
     const userFromCookie = req.session.currentUser;   
     try {
@@ -17,14 +19,13 @@ router.get('/', isLoggedIn, async (req, res, next) => {
   });
 
 router.post('/', isLoggedIn, async (req,res,next)=>{
-    const { cryptos } =req.body.Cryptos;
-   
+    const { cryptoCoins } =req.body;
     try {
-        console.log(cryptos)
+    console.log(cryptoCoins)
     } catch (error) {
-        next(error)
+        
     }
-
+   
 })
 
 module.exports = router;
