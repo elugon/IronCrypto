@@ -16,4 +16,15 @@ router.get('/', isLoggedIn, async (req, res, next) => {
     }
   });
 
+router.post('/', isLoggedIn, async (req,res,next)=>{
+    const { cryptos } =req.body.Cryptos;
+   
+    try {
+        console.log(cryptos)
+    } catch (error) {
+        next(error)
+    }
+
+})
+
 module.exports = router;
