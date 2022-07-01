@@ -19,7 +19,12 @@ const userSchema = new Schema(
     hashedPassword: {
       type: String,
       required: [true, 'Password is required.']
+    },
+
+    favorites:{
+      type: [String]
     }
+
   },
   {
     timestamps: true
