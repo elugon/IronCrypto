@@ -40,7 +40,7 @@ router.post('/edit-profile/:userId', isLoggedIn, async (req, res, next) => {
     }
   });
 
-  router.post('/delete/userId',isLoggedIn, async (req, res, next) => {
+  router.post('/delete/:userId',isLoggedIn, async (req, res, next) => {
     const { userId } = req.params;
     try {
       // Deletes from DB
