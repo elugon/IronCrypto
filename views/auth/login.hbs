@@ -1,15 +1,17 @@
-<h2>Login</h2>
+
+<div class="container">
+<h1>Login</h1>
 
 <div>
   <form action="/auth/login" method="POST">
 
-  <div> 
-    <label>Email</label>
+  <div class="form"> 
+    <label>Email:</label>
     <input type="email" name="email" placeholder="john@doe.com" />
   </div>
     
-  <div> 
-    <label>Password</label>
+  <div class="form"> 
+    <label>Password:</label>
     <input type="password" name="password" placeholder="********" />
   </div>
      
@@ -17,7 +19,10 @@
     <p style="color:rgb(218, 90, 90)">{{ error }}</p>
     {{/if}}
     
+    <div id="login">
     <button class="button" type="submit">Login</button>
+    </div>
 
   </form>
+</div>
 </div>
