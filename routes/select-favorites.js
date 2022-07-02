@@ -33,6 +33,7 @@ router.post('/', isLoggedIn, async (req,res,next)=>{
         {$push: {"favorites": cryptoCoins}},
         {new : true,
         upsert: true});
+        res.redirect('/coins-to-see');
     
     } catch (error) {
         next(error)

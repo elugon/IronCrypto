@@ -2,6 +2,11 @@
 Design for mobile displays from 360×640 through 414×896
 Design for tablet displays from 601×962 through 1280×800*/
 
+.container{
+  padding: 10%;
+}
+
+
 body {
   padding: 0;
   margin: 0;

@@ -54,7 +54,7 @@ router.post('/signup', async (req, res, next) => {
     const salt = await bcrypt.genSalt(saltRounds);
     const hashedPassword = await bcrypt.hash(password, salt);
     const user = await User.create({ username, email, hashedPassword });
-    res.render('auth/profile', user)
+    res.render('auth/login', user)
   } catch (error) {
     next(error)
   }
@@ -81,7 +81,7 @@ router.post('/login', async (req, res, next) => {
       const match = await bcrypt.compare(password, user.hashedPassword);
       if (match) {
         req.session.currentUser = user;
-        res.redirect('/favorites');
+        res.redirect('/coins-to-see');
       } else {
         res.render('auth/login', { error: "Unable to authenticate user" });
       }

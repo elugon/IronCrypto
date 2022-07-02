@@ -11,10 +11,12 @@ const MongoStore = require('connect-mongo');
 // Routers require
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
-const favoritesRouter = require ('./routes/favorites')
+const allCoinsRouter = require ('./routes/all-coins')
 const profileRouter = require ('./routes/profile')
+const favoritesRouter = require ('./routes/favorites')
 const selectFavoritesRouter = require ('./routes/select-favorites')
 const coinDetailRouter = require ('./routes/coin-detail')
+const coinsToSee = require ('./routes/coins-to-see')
 
 const app = express();
 
@@ -52,10 +54,12 @@ app.set('view engine', 'hbs');
 // routes intro
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
+app.use('/all-coins', allCoinsRouter);
 app.use('/favorites', favoritesRouter);
 app.use('/select-favorites', selectFavoritesRouter);
 app.use('/profile', profileRouter);
 app.use('/coin-detail', coinDetailRouter)
+app.use('/coins-to-see', coinsToSee);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
