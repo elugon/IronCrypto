@@ -16,7 +16,8 @@ const profileRouter = require ('./routes/profile')
 const favoritesRouter = require ('./routes/favorites')
 const selectFavoritesRouter = require ('./routes/select-favorites')
 const coinDetailRouter = require ('./routes/coin-detail')
-const coinsToSee = require ('./routes/coins-to-see')
+const coinsToSeeRouter = require ('./routes/coins-to-see')
+const commentsRouter = require ('./routes/comments')
 
 const app = express();
 
@@ -59,7 +60,9 @@ app.use('/favorites', favoritesRouter);
 app.use('/select-favorites', selectFavoritesRouter);
 app.use('/profile', profileRouter);
 app.use('/coin-detail', coinDetailRouter)
-app.use('/coins-to-see', coinsToSee);
+app.use('/coins-to-see', coinsToSeeRouter);
+app.use('/comments', commentsRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

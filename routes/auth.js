@@ -8,7 +8,7 @@ const saltRounds = 10;
 // @desc    Displays form view to sign up
 // @route   GET /auth/signup
 // @access  Public
-router.get('/signup', async (req, res, next) => {
+router.get('/signup', (req, res, next) => {
   res.render('auth/signup');
 })
 
