@@ -11,9 +11,7 @@ router.get('/', isLoggedIn, async (req, res, next) => {
     try {
         const user = await User.findById(userFromCookie._id);
         const data = await CoinGeckoClient.coins.all(); 
-        // const retrievePriceUsd = data;
-        // res.json({ data, user });
-        res.render('select-favorites',data);        
+         res.render('select-favorites',data);        
     } catch (error) {
         next(error)
     }

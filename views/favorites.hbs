@@ -1,5 +1,5 @@
 <h1>Welcome to your favorites coins</h1>
 
-{{#each userFavorites,data}}
-<h1>{{userFavorites}}</h1>
+{{#each data}}
+<p> The current price of {{data.id}} is: {{data.market_data.current_price.usd}}$</p>
 {{/each}}
