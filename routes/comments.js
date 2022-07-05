@@ -11,7 +11,7 @@ router.get('/:coin', isLoggedIn, async (req, res, next) => {
     try {
         const user = await User.findById(userFromCookie._id);
         const data = await CoinGeckoClient.coins.fetch(`${coin}`, {tickers:false, community_data:false, developer_data:false, localization:false, sparkline:true});
-        const userComment = await Comment.find({});
+        const userComment = await Comment.find({ coinComment: coin });
         //res.json({userComment})  
         res.render('comment-section',{user,data,userComment});        
     } catch (error) {
