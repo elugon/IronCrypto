@@ -6,6 +6,27 @@ Design for tablet displays from 601×962 through 1280×800*/
   padding: 10%;
 }
 
+nav {  
+  overflow: hidden;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+nav ul li{
+  list-style-type: none;
+}
+
+nav ul li a:hover{
+background-color: rgb(161, 161, 161);
+
+}
 
 body {
   padding: 0;
@@ -15,19 +36,14 @@ body {
 
 h1{
   margin-left: 5%;
-  margin-top: 80px;
+  top: 0;
   font-size: 32px;
 }
 
-#logo {
-  width: 375px;
-  height: 176px;
-  margin-left:5%;
-  margin-top: 174px;
-}
+
 
 .button{
-  background-image: url("/img/fondo-paleta.png");
+  background-color: #028ee6;
   color: white;
   font-family: Roboto Condensed;
   font-size: 1.5em;
@@ -37,7 +53,8 @@ h1{
   padding: 5px;
   border-radius: 10px;
   margin-top: 40px;
-  
+  border-width: 0px;
+  width: 100%;  
 }
 
 .home {
@@ -45,6 +62,17 @@ h1{
   flex-direction: column;
   align-items: center;
   margin-top: 60px;
+}
+
+#logo {
+  margin-top: 15px;
+  width: 50px;
+  height: 50px;
+ }
+
+.homelogo{
+  display: flex;
+
 }
 
 #login{
@@ -57,5 +85,13 @@ h1{
 
 .form {
   margin-left: 5%;
-  margin-top: 20px;
+  margin-top: 20px; 
+}
+
+.formbox{
+  border-radius: 10px;
+  width: 100%;
+  border-width: 1px;
+  height: 40px;
+  margin-top: 15px;
 }

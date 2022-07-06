@@ -2,14 +2,14 @@
 
 <form action = "/profile/edit-profile/{{_id}}" method="POST">
 .
-<div>
+<div class="form">
 <label>Username</label>
-<input type ='text' name = 'username' value = '{{username}}'>
+<input class="formbox" type ='text' name = 'username' value = '{{username}}'>
 </div>
 
-<div>
+<div class="form">
 <label>Email</label>
-<input type ='text' name = 'email' value = '{{email}}'>
+<input class="formbox" type ='text' name = 'email' value = '{{email}}'>
 </div>
 
 {{#if error}}

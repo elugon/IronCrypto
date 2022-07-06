@@ -1,18 +1,17 @@
 
-<div class="container">
-<h1>Login</h1>
+<h1>Login to Irocrypto</h1>
 
 <div>
   <form action="/auth/login" method="POST">
 
   <div class="form"> 
-    <label>Email:</label>
-    <input type="email" name="email" placeholder="john@doe.com" />
+    <label>Email</label>
+    <input class="formbox" type="email" name="email" placeholder="Your email..." />
   </div>
     
   <div class="form"> 
-    <label>Password:</label>
-    <input type="password" name="password" placeholder="********" />
+    <label>Password</label>
+    <input class="formbox" type="password" name="password" placeholder="Type your password..." />
   </div>
      
     {{#if error}}
@@ -24,5 +23,4 @@
     </div>
 
   </form>
-</div>
 </div>
