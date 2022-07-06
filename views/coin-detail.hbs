@@ -6,5 +6,45 @@
 
 <p>Price change percentage in the last 24h: {{data.data.market_data.price_change_percentage_24h}}%</p>
 
+<div class="chartBox">
+    <canvas id="myChart"></canvas>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            data: [{{data.data.market_data.sparkline_7d.price}}],
+            backgroundColor:'#33B1FF',
+            borderColor:'#33B1FF',
+            borderWidth: 2,
+            pointRadius:0
+        }]
+    },
+    options: {
+        scales: {
+            x:{
+                beginAtZero: false,
+                display:false
+            },
+            y: {
+                beginAtZero: false,
+                display:false
+            }
+        },
+        plugins:{
+            legend:{
+                display:false
+            }
+        }
+    }
+});
+</script>
+
 <a href="/all-coins"><button>Want to see all coins?</button></a>
 
