@@ -1,10 +1,17 @@
 <h1>Welcome {{userFromDB.username}}</h1>
 
-<p>This is your profile page</p>
+<p><strong>This is your profile page</strong></p>
 
-<p>Your current email is {{userFromDB.email}}</p>
+<p><strong>Your current email is</strong> {{userFromDB.email}}</p>
 
+<p><strong>Your favorite coins are:</strong> </p>
+{{#each data}}
+ <p>{{data.id}} </p>
+{{/each}}
 
-<a href = "/profile/edit-profile/{{this.userFromDB._id}}">Edit Profile</a>
+<a href="/profile/edit-profile/{{this.userFromDB._id}}"><button class="button">Edit Profile</button></a>
+
+<a href="/select-favorites"><button class="button">Edit you favorites</button></a>
 
 <form class= "form" action="/auth/logout" method="POST"><button class="button" type="submit">Log Out</button></form>
+

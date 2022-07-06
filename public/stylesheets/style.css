@@ -10,7 +10,7 @@ nav {
   overflow: hidden;
   bottom: 0;
   position: fixed;
-  width: 100%;
+  width: 100%;  
 }
 
 nav ul {
@@ -35,7 +35,6 @@ body {
 }
 
 h1{
-  margin-left: 5%;
   top: 0;
   font-size: 32px;
 }
@@ -94,4 +93,20 @@ h1{
   border-width: 1px;
   height: 40px;
   margin-top: 15px;
+}
+
+.allcoins{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;  
+}
+
+.each-coin{  
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.coin-name{
+  text-decoration: none;
 }

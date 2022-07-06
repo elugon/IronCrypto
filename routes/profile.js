@@ -1,11 +1,16 @@
 const router = require("express").Router();
+const CoinGecko = require('coingecko-api');
 const User = require('../models/User');
+const CoinGeckoClient = new CoinGecko();
+const isLoggedIn = require('../middlewares');
+
 
 router.get('/',isLoggedIn, async (req, res, next) => {
-    const user = req.session.currentUser;
+    const user = req.session.currentUser;    
     try {
+      const data = await Promise.all(user.favorites.map(async elem=>{return CoinGeckoClient.coins.fetch(elem, {tickers:false, community_data:false, developer_data:false, localization:false, sparkline:true})}));
       const userFromDB = await User.findById(user._id);
-        res.render('auth/profile', {userFromDB});
+        res.render('auth/profile', {userFromDB,data});
     } catch (error) {
         next(error)
     }    

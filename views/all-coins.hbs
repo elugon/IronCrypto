@@ -1,9 +1,11 @@
 <h1>Pick a coin!</h1>
 
+<div class="allcoins">
 {{#each data.data}}
 
-<p><img src = "{{image.thumb}}" alt="CryptoIcon"><a href = "/coin-detail/{{id}}">{{id}}</a></p>
+<div class="each-coin"><img src = "{{image.thumb}}" alt="CryptoIcon"><a class="coin-name" href = "/coin-detail/{{id}}">{{id}}</a></div>
 
 {{/each}}
 
 <a href="/coins-to-see"><button>Let's return?</button></a>
+</div>
