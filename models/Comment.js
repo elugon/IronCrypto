@@ -11,6 +11,9 @@ const commentSchema = new Schema(
     coinComment: {
         type: String,              
       },
+    commentingUser:{
+        type:String
+    },
   },
   {
     timestamps: true

@@ -1,18 +1,24 @@
-<h1>Hello {{username}}</h1>
+<div class="homelogo">
+<img class="logo" src="/img/cryptologo.png"/><h1>Ironcrypto</h1>
+</div>
 
-<p>Please write your comment below and join the discussion of {{data.data.id}}</p>
+<h1>Hello {{user.username}}</h1>
+
+<p>Please write your comment below and join the discussion of <strong>{{data.data.id}}</strong></p>
 
 
-<div id="form">
+<div>
   <form action="/comments/{{data.data.id}}" method="POST">
 
   <div class="form"> 
-    <label>Comment:</label>
-      <input type="text" name="comment" placeholder="Write your comment here..." />
+    <label>Comment</label>
+      <input class="formbox" type="text" name="comment" placeholder="Write your comment here..." />
   </div>
 
    
-      <input type="text" name="coinComment" value="{{data.data.id}}" />
+      <input class="coin-commented" type="text" name="coinComment" value="{{data.data.id}}" />
+
+      <input class="coin-commented" type="text" name="commentingUser" value="{{user.username}}" />
   
 
    
@@ -30,6 +36,8 @@
   <div>
 
   {{#each userComment}}
+
+  <p><strong>{{commentingUser}} said:</strong></p>
 
   <p>{{comment}}</p>
 

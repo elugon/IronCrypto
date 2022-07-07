@@ -19,7 +19,7 @@ router.get('/:coin', isLoggedIn, async (req, res, next) => {
   });
 
   router.post('/:coin', async (req, res, next) => {
-    const { comment, coinComment } = req.body;
+    const { comment, coinComment, commentingUser } = req.body;
     const userFromCookie = req.session.currentUser;
     const {coin} = req.params  
     const data = await CoinGeckoClient.coins.fetch(`${coin}`, {tickers:false, community_data:false, developer_data:false, localization:false, sparkline:true});   
@@ -33,7 +33,7 @@ router.get('/:coin', isLoggedIn, async (req, res, next) => {
     // }
   
     try {
-      const userComment = await Comment.create({comment, coinComment});
+      const userComment = await Comment.create({comment, coinComment, commentingUser});
       const user = await User.findById(userFromCookie._id); 
       res.redirect(`/comments/${coin}`)
     } catch (error) {

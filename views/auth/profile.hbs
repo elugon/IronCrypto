@@ -1,3 +1,7 @@
+<div class="homelogo">
+<img class="logo" src="/img/cryptologo.png"/><h1>Ironcrypto</h1>
+</div>
+
 <h1>Welcome {{userFromDB.username}}</h1>
 
 <p><strong>This is your profile page</strong></p>
@@ -6,7 +10,7 @@
 
 <p><strong>Your favorite coins are:</strong> </p>
 {{#each data}}
- <p>{{data.id}} </p>
+ <li class="each-coin"><img src = "{{data.image.thumb}}" /><a class="coin-name" href = "/coin-detail/{{data.id}}">{{data.id}}</a> </li>
 {{/each}}
 
 <a href="/profile/edit-profile/{{this.userFromDB._id}}"><button class="button">Edit Profile</button></a>

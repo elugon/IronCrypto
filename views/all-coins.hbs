@@ -1,9 +1,13 @@
+<div class="homelogo">
+<img class="logo" src="/img/cryptologo.png"/><h1>Ironcrypto</h1>
+</div>
+
 <h1>Pick a coin!</h1>
 
 <div class="allcoins">
 {{#each data.data}}
 
-<div class="each-coin"><img src = "{{image.thumb}}" alt="CryptoIcon"><a class="coin-name" href = "/coin-detail/{{id}}">{{id}}</a></div>
+<li class="each-coin"><img src = "{{image.thumb}}" alt="CryptoIcon"><a class="coin-name" href = "/coin-detail/{{id}}">{{id}}</a></li>
 
 {{/each}}
 
