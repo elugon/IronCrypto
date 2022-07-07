@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const isLoggedIn = require('../middlewares');
 const User = require('../models/User');
+const fileUploader = require('../config/cloudinary.config');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
@@ -22,7 +23,7 @@ router.get('/login', async (req, res, next) => {
 // @desc    Sends user auth data to database to create a new user
 // @route   POST /auth/signup
 // @access  Public
-router.post('/signup', async (req, res, next) => {
+router.post('/signup', async, fileUploader.single('profileImageURL'), (req, res, next) => {
   const { email, password,passwordConfirmation, username } = req.body;
 
   // Check if user introduced all values
@@ -53,7 +54,7 @@ router.post('/signup', async (req, res, next) => {
   try {
     const salt = await bcrypt.genSalt(saltRounds);
     const hashedPassword = await bcrypt.hash(password, salt);
-    const user = await User.create({ username, email, hashedPassword });
+    const user = await User.create({ username, email, hashedPassword, profileImageURL:req.file.path });
     res.render('auth/login', user)
   } catch (error) {
     next(error)

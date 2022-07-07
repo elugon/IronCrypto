@@ -20,10 +20,12 @@ const userSchema = new Schema(
       type: String,
       required: [true, 'Password is required.']
     },
-
     favorites:{
       type: [String]
-    }
+    },
+    profileImageURL:{
+      type: String
+    },
 
   },
   {
