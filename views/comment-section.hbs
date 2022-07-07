@@ -19,6 +19,8 @@
       <input class="coin-commented" type="text" name="coinComment" value="{{data.data.id}}" />
 
       <input class="coin-commented" type="text" name="commentingUser" value="{{user.username}}" />
+
+      <input class="coin-commented" type="text" name="userImage" value={{user.imageUrl}}/>
   
 
    
@@ -37,7 +39,7 @@
 
   {{#each userComment}}
 
-  <p><strong>{{commentingUser}} said:</strong></p>
+  <p><img class="profile-img" width="20px" height="20px" src="{{userImage}}"/><strong>{{commentingUser}} said:</strong></p>
 
   <p>{{comment}}</p>
 

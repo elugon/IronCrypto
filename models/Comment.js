@@ -14,6 +14,9 @@ const commentSchema = new Schema(
     commentingUser:{
         type:String
     },
+    userImage:{
+         type:String,
+    }
   },
   {
     timestamps: true

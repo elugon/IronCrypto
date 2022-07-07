@@ -3,6 +3,7 @@ const CoinGecko = require('coingecko-api');
 const User = require('../models/User');
 const CoinGeckoClient = new CoinGecko();
 const isLoggedIn = require('../middlewares');
+const fileUploader = require('../config/cloudinary.config');
 
 
 router.get('/',isLoggedIn, async (req, res, next) => {
@@ -26,7 +27,7 @@ router.get('/edit-profile/:userId', isLoggedIn, async (req, res, next) => {
     }
   });
 
-router.post('/edit-profile/:userId', isLoggedIn, async (req, res, next) => {
+router.post('/edit-profile/:userId', isLoggedIn, fileUploader.single('imageUrl'), async (req, res, next) => {
     const { userId } = req.params;
     const {username, email} = req.body;
     if (!username || !email) {
@@ -36,7 +37,7 @@ router.post('/edit-profile/:userId', isLoggedIn, async (req, res, next) => {
         return;
     }    
     try {
-        const updateUser = await User.findByIdAndUpdate(userId, {username, email}, {new: true});
+        const updateUser = await User.findByIdAndUpdate(userId, {username, email, imageUrl: req.file.path}, {new: true});
         req.session.currentUser = updateUser;
         res.redirect(`/profile`)
     } catch (error) {

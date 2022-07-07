@@ -5,7 +5,7 @@
 <h1>¡Create a new account!</h1>
 
 <div id="form">
-  <form action="/auth/signup" method="POST" enctype="multipart/form-data">
+  <form action="/auth/signup" method="POST">
 
   <div class="form"> 
     <label>Username:</label>
@@ -26,12 +26,6 @@
       <label>Confirm Password:</label>
       <input class="formbox" type="password" name="passwordConfirmation" placeholder="Type your password here..." />
     </div>
-
-    <div class="form">
-      <label>Image:</label>
-        <input type="file" name="imageUrl" class="form-control"/>
-
-      </div>
 
       {{#if error}}
       <p style="color: red;">{{error}}</p>

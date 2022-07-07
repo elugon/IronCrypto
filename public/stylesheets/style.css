@@ -140,3 +140,7 @@ a.link {
 .coin-commented {
   display: none;
 }
+
+.profile-img{
+  border-radius: 50%;  
+}

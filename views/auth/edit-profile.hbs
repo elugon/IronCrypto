@@ -4,7 +4,7 @@
 
 <h1>Edit Profile</h1>
 
-<form action = "/profile/edit-profile/{{_id}}" method="POST">
+<form action = "/profile/edit-profile/{{_id}}" method="POST" enctype="multipart/form-data">
 
 <div class="form">
 <label>Username</label>
@@ -14,6 +14,11 @@
 <div class="form">
 <label>Email</label>
 <input class="formbox" type ='text' name = 'email' value = '{{email}}'>
+</div>
+
+<div class="form">
+<label>Image</label>
+<input type="file" name="imageUrl" class="form-control"/>
 </div>
 
 {{#if error}}
