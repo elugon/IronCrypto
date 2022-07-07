@@ -25,7 +25,6 @@ router.get('/login', async (req, res, next) => {
 // @access  Public
 router.post('/signup', fileUploader.single('imageUrl'), async (req, res, next) => {
   const { email, password,passwordConfirmation, username} = req.body;
-
   // Check if user introduced all values
   if (!email || !password || !passwordConfirmation || !username) {
     res.render("auth/signup", {
