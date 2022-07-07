@@ -1,33 +1,37 @@
 /*Design for desktop displays from 1024×768 through 1920×1080
 Design for mobile displays from 360×640 through 414×896
 Design for tablet displays from 601×962 through 1280×800*/
-
-.container{
-  padding: 10%;
+* {
+  box-sizing: border-box;
 }
 
-nav {  
-  overflow: hidden;
+.container {
+  padding: 10%;
+  min-height: 100vh;
+}
+
+nav {
+  /* overflow: hidden; */
+  display: block;
+  position: sticky;
   bottom: 0;
-  left: -20px;
-  position: fixed;
-  width: 100%;
-  background-color: white;  
+  width: 100vw;
+  padding: 5px 0;
+  background-color: white;
 }
 
 nav ul {
   display: flex;
-  justify-content: space-around;
- 
-
+  justify-content: space-evenly;
+  padding-inline-start: 0;
 }
 
-nav ul li{
+nav ul li {
   list-style-type: none;
 }
 
-nav ul li a:hover{
-background-color: rgb(161, 161, 161);
+nav ul li a:hover {
+  background-color: rgb(161, 161, 161);
 
 }
 
@@ -37,14 +41,14 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-h1{
+h1 {
   top: 0;
   font-size: 32px;
 }
 
 
 
-.button{
+.button {
   background-color: #028ee6;
   color: white;
   font-family: Roboto Condensed;
@@ -54,9 +58,9 @@ h1{
   text-decoration: none;
   padding: 5px;
   border-radius: 10px;
-  margin-top: 40px;
+  margin-top: 15px;
   border-width: 0px;
-  width: 100%;  
+  width: 100%;
 }
 
 .home {
@@ -66,64 +70,73 @@ h1{
   margin-top: 60px;
 }
 
+a.link {
+  display: block;
+  color: #028ee6;
+  margin-top: 10px;
+}
+
 .logo {
   margin-top: 15px;
   width: 50px;
   height: 50px;
- }
+}
 
-.homelogo{
+.homelogo {
   display: flex;
   margin-left: -5px;
 
 }
 
-#login{
+/* #login {
   margin-left: 5%;
-}
+} */
 
-#create-account{
+#create-account {
   margin-left: 5%;
 }
 
 .form {
-  margin-left: 5%;
-  margin-top: 20px; 
+  width: 100%;
+  /* margin-left: 5%;
+  margin-top: 20px; */
 }
 
-.formbox{
+.formbox {
   border-radius: 10px;
   width: 100%;
   border-width: 1px;
   height: 40px;
-  margin-top: 15px;
+  margin: 5px 0 10px 0;
+  padding: 10px;
+  /* margin-top: 15px; */
 }
 
-.allcoins{
+.allcoins {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;  
+  justify-content: space-between;
 }
 
-.each-coin{  
+.each-coin {
   display: flex;
   align-items: center;
   padding: 5px;
   width: 100%;
 }
 
-.coin-name{
+.coin-name {
   text-decoration: none;
   padding: 5px;
 }
 
-.coin-list{
+.coin-list {
   list-style-type: none;
-  display:flex;
+  display: flex;
   align-items: center;
   padding: 5px;
 }
 
-.coin-commented{
-  display:none;
+.coin-commented {
+  display: none;
 }

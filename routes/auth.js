@@ -82,7 +82,7 @@ router.post('/login', async (req, res, next) => {
       const match = await bcrypt.compare(password, user.hashedPassword);
       if (match) {
         req.session.currentUser = user;
-        res.redirect('/coins-to-see');
+        res.redirect('/profile');
       } else {
         res.render('auth/login', { error: "Unable to authenticate user" });
       }
