@@ -23,7 +23,7 @@ const userSchema = new Schema(
     favorites:{
       type: [String]
     },
-    profileImageURL:{
+    imageUrl:{
       type: String
     },
 
