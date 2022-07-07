@@ -3,6 +3,7 @@ const CoinGecko = require('coingecko-api');
 const User = require('../models/User');
 const CoinGeckoClient = new CoinGecko();
 const isLoggedIn = require('../middlewares');
+const { update } = require("../models/User");
 
 
 
@@ -22,16 +23,18 @@ router.post('/', isLoggedIn, async (req,res,next)=>{
     const userFromCookie = req.session.currentUser;
     try {
     
-    let clearFavorites=await User.findByIdAndUpdate(userFromCookie._id,
+    await User.findByIdAndUpdate(userFromCookie._id,
         {"favorites": []},
         {new : true,
         upsert: true});
 
-    let updateFavorites= await User.findByIdAndUpdate(userFromCookie._id,
+    let updatedUser = await User.findByIdAndUpdate(userFromCookie._id,
         {$push: {"favorites": cryptoCoins}},
         {new : true,
-        upsert: true});
-        res.redirect('/coins-to-see');
+            upsert: true
+        });
+        req.session.currentUser = updatedUser;
+        res.redirect('/favorites');
     
     } catch (error) {
         next(error)

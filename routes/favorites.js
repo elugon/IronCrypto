@@ -7,8 +7,8 @@ const isLoggedIn = require('../middlewares');
 router.get('/', isLoggedIn, async (req, res, next) => {  
       
     try {
-        const userFromCookie = req.session.currentUser; 
-        const user = await User.findById(userFromCookie);
+        const user = req.session.currentUser; 
+        //const user = await User.findById(userFromCookie._id);
         const data = await Promise.all(user.favorites.map(async elem=>{return CoinGeckoClient.coins.fetch(elem, {tickers:false, community_data:false, developer_data:false, localization:false, sparkline:true})}));
         res.render('favorites',{data});        
     } catch (error) {
