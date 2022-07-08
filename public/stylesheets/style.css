@@ -49,9 +49,10 @@ h1 {
 .get-started{
   display: flex;  
   align-items: center;  
-  padding: 5px;
-  width: 50%;
+  padding: 5px;  
   margin-bottom: 0px;
+  font-size: 20px;
+  text-decoration: none;
 }
 
 .get-started-text{
@@ -72,6 +73,28 @@ h1 {
 
 .second-statement{
   font-size: 15px;
+}
+
+.all-subtitles{
+  display:flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.subtitle-group{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-subtitle{
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.sub-description{
+  text-align: center;
 }
 
 
@@ -180,6 +203,10 @@ a.link {
 
 .profile-img{
   border-radius: 50%;  
+}
+
+.profile-info{
+  font-size: 16px;
 }
 
 .commenting-user{

@@ -9,11 +9,13 @@
 
 <h1>Welcome {{userFromDB.username}}</h1>
 
+<div class="profile-info">
 <p><strong>This is your profile page</strong></p>
 
 <p><strong>Your current email is</strong> {{userFromDB.email}}</p>
 
 <p><strong>Your favorite coins are:</strong> </p>
+</div>
 {{#each data}}
  <li class="each-coin"><img src = "{{data.image.thumb}}" /><a class="coin-name" href = "/coin-detail/{{data.id}}">{{data.id}}</a> </li>
 {{/each}}
