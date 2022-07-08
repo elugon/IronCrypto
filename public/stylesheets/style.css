@@ -46,6 +46,33 @@ h1 {
   font-size: 32px;
 }
 
+.get-started{
+  display: flex;  
+  align-items: center;  
+  padding: 5px;
+  width: 50%;
+  margin-bottom: 0px;
+}
+
+.get-started-text{
+  margin-left: 7px;
+  margin-right: 7px;
+  text-decoration: none;
+  color: #028ee6;
+  font-weight: bold;
+}
+
+
+
+.initial-statement{
+  font-size: 30px;
+  font-weight: bolder;
+  margin-top: 0px;
+}
+
+.second-statement{
+  font-size: 15px;
+}
 
 
 .button {
@@ -67,7 +94,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 a.link {
@@ -77,14 +104,24 @@ a.link {
 }
 
 .logo {
-  margin-top: 15px;
+  margin-top: 0px;
   width: 50px;
   height: 50px;
 }
 
-.homelogo {
+.logo-name{
   display: flex;
-  margin-left: -5px;
+  align-items: center;
+  margin-left: 20px;  
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+}
+
+.home-logo{
+  margin-left: 5px;
 
 }
 
@@ -143,4 +180,9 @@ a.link {
 
 .profile-img{
   border-radius: 50%;  
+}
+
+.commenting-user{
+  padding-right: 5px;
+  padding-left: 5px;
 }

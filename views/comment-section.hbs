@@ -1,5 +1,8 @@
-<div class="homelogo">
+<div class="top-bar">
+<img width="30px" height="30px" src="/img/arrow-back.png"<button onclick="history.back()"></button>
+<div class="logo-name">
 <img class="logo" src="/img/cryptologo.png"/><h1>Ironcrypto</h1>
+</div>
 </div>
 
 <h1>Hello {{user.username}}</h1>
@@ -39,7 +42,7 @@
 
   {{#each userComment}}
 
-  <p><img class="profile-img" width="20px" height="20px" src="{{userImage}}"/><strong>{{commentingUser}} said:</strong></p>
+  <div class="each-coin"><img class="profile-img" width="20px" height="20px" src="{{userImage}}"/><p class="commenting-user"><strong>{{commentingUser}}</strong></p> said:</div>
 
   <p>{{comment}}</p>
 
