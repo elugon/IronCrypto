@@ -25,7 +25,7 @@ router.get('/:coin', isLoggedIn, async (req, res, next) => {
     const {coin} = req.params  
     const data = await CoinGeckoClient.coins.fetch(`${coin}`, {tickers:false, community_data:false, developer_data:false, localization:false, sparkline:true});   
   
-    // Check if user introduced all values
+    //Check if user introduced all values
     // if (!comment) {
     //   res.render(`comment-section/${coin}`, {
     //     error: "All fields are mandatory. Please fill them before submitting.",
