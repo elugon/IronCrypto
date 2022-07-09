@@ -178,22 +178,48 @@ a.link {
   justify-content: space-between;
 }
 
+.each-list-coin {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+  width: 100%;  
+}
+
+.coin-list-name {
+  text-decoration: none;
+  padding: 7px;
+}
+
 .each-coin {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 5px;
   width: 100%;
+  border-top: solid 1px lightgray;
 }
 
 .coin-name {
   text-decoration: none;
-  padding: 5px;
+  padding: 0px;
+}
+
+.card{
+  text-decoration: none;
+  color: black;
 }
 
 .card-first-group{
   display: flex;
   align-items: center;
+}
+
+.card-second-group{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;  
 }
 
 .coin-list {
@@ -218,4 +244,13 @@ a.link {
 .commenting-user{
   padding-right: 5px;
   padding-left: 5px;
+}
+
+.comment-block{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+  width: 100%;
+
 }
