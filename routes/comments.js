@@ -27,12 +27,16 @@ router.get('/:coin', isLoggedIn, async (req, res, next) => {
   
     //Check if user introduced all values
     // if (!comment) {
-    //   res.render(`comment-section/${coin}`, {
+    //   res.redirect(`comment-section/${coin}`, {
     //     error: "All fields are mandatory. Please fill them before submitting.",
     //   });
     //   return;
     // }
-  
+    if (!comment) {
+      res.redirect(`/comments/${coin}`);
+      return;
+    }
+
     try {
       const userComment = await Comment.create({comment, coinComment, commentingUser, userImage});
       const user = await User.findById(userFromCookie._id); 
