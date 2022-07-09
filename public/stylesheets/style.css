@@ -78,13 +78,14 @@ h1 {
 .all-subtitles{
   display:flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .subtitle-group{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
 }
 
 .home-subtitle{
@@ -117,7 +118,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 a.link {
@@ -219,7 +220,8 @@ a.link {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  flex-direction: column;  
+  flex-direction: column;
+  margin-left: 10px;  
 }
 
 .coin-list {

@@ -17,19 +17,22 @@
 <p><strong>Your favorite coins are:</strong> </p>
 </div>
 {{#each data}}
- <li class="each-coin">
-    <div class="card-first-group">
-        <img width="35px" height="35px" src = "{{data.image.thumb}}" />
-        <div class="card-second-group">
-            <a class="coin-name" href = "/coin-detail/{{data.id}}">{{data.id}}</a>
-            <p class="coin-name">{{data.symbol}}</p>
+<a class="card" href = "/coin-detail/{{data.id}}">
+    <li class="each-coin">
+    
+        <div class="card-first-group">
+            <img width="35px" height="35px" src = "{{data.image.thumb}}" />
+            <div class="card-second-group">
+                <p class="coin-name" >{{data.id}}</p>
+                <p class="coin-name">{{data.symbol}}</p>
+            </div>
         </div>
-    </div>
-    <div>
-        <p>{{data.market_data.current_price.usd}} $</p>
-        <p>{{data.market_data.price_change_percentage_24h}}%</p>
-    </div> 
- </li>
+        <div>
+            <p>{{data.market_data.current_price.usd}} $</p>
+            <p>{{data.market_data.price_change_percentage_24h}}%</p>
+        </div>    
+    </li>
+  </a>
 {{/each}}
 
 <a href="/profile/edit-profile/{{this.userFromDB._id}}"><button class="button">Edit Profile</button></a>
