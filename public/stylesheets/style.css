@@ -181,6 +181,7 @@ a.link {
 .each-coin {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 5px;
   width: 100%;
 }
@@ -188,6 +189,11 @@ a.link {
 .coin-name {
   text-decoration: none;
   padding: 5px;
+}
+
+.card-first-group{
+  display: flex;
+  align-items: center;
 }
 
 .coin-list {

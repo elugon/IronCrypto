@@ -11,7 +11,8 @@ router.get('/',isLoggedIn, async (req, res, next) => {
     try {
       const data = await Promise.all(user.favorites.map(async elem=>{return CoinGeckoClient.coins.fetch(elem, {tickers:false, community_data:false, developer_data:false, localization:false, sparkline:true})}));
       const userFromDB = await User.findById(user._id);
-        res.render('auth/profile', {userFromDB,data});
+      //res.json(data)
+      res.render('auth/profile', {userFromDB,data});
     } catch (error) {
         next(error)
     }    
