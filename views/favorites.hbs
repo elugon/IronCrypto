@@ -8,7 +8,22 @@
 <h1>Welcome to your favorite coins</h1>
 
 {{#each data}}
-<p> The current price of {{data.id}} is: {{data.market_data.current_price.usd}}$</p>
+<a class="card" href = "/coin-detail/{{data.id}}">
+    <li class="each-coin">
+    
+        <div class="card-first-group">
+            <img width="35px" height="35px" src = "{{data.image.thumb}}" />
+            <div class="card-second-group">
+                <p class="coin-name" >{{data.id}}</p>
+                <p class="coin-name">{{data.symbol}}</p>
+            </div>
+        </div>
+        <div>
+            <p>{{data.market_data.current_price.usd}} $</p>
+            <p>{{data.market_data.price_change_percentage_24h}}%</p>
+        </div>    
+    </li>
+  </a>
 {{/each}}
 
 <a href="/select-favorites"><button class="button">Edit your favorites</button></a>

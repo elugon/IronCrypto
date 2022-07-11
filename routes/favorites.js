@@ -4,6 +4,10 @@ const User = require('../models/User');
 const CoinGeckoClient = new CoinGecko();
 const isLoggedIn = require('../middlewares');
 
+
+// @desc    Displays the chosen favorites from the logged user
+// @route   GET /favorites
+// @access  Private
 router.get('/', isLoggedIn, async (req, res, next) => {  
       
     try {

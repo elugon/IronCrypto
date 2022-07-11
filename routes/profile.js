@@ -5,18 +5,24 @@ const CoinGeckoClient = new CoinGecko();
 const isLoggedIn = require('../middlewares');
 const fileUploader = require('../config/cloudinary.config');
 
-
+// @desc    Display the logged user profile
+// @route   GET /profile
+// @access  Private
 router.get('/',isLoggedIn, async (req, res, next) => {
     const user = req.session.currentUser;    
     try {
       const data = await Promise.all(user.favorites.map(async elem=>{return CoinGeckoClient.coins.fetch(elem, {tickers:false, community_data:false, developer_data:false, localization:false, sparkline:true})}));
       const userFromDB = await User.findById(user._id);
-        res.render('auth/profile', {userFromDB,data});
+      //res.json(data)
+      res.render('auth/profile', {userFromDB,data});
     } catch (error) {
         next(error)
     }    
   });
 
+// @desc    Display a form to edit the user profile
+// @route   GET /profile/edit-profile/:userId
+// @access  Private
 router.get('/edit-profile/:userId', isLoggedIn, async (req, res, next) => {
     const { userId } = req.params;
     try {
@@ -27,7 +33,10 @@ router.get('/edit-profile/:userId', isLoggedIn, async (req, res, next) => {
     }
   });
 
-router.post('/edit-profile/:userId', isLoggedIn, fileUploader.single('imageUrl'), async (req, res, next) => {
+// @desc    Sends the edited data to the database
+// @route   POST /profile/edit-profile/:userId
+// @access  Private
+ router.post('/edit-profile/:userId', isLoggedIn, fileUploader.single('imageUrl'), async (req, res, next) => {
     const { userId } = req.params;
     const {username, email} = req.body;
     if (!username || !email) {
@@ -46,6 +55,9 @@ router.post('/edit-profile/:userId', isLoggedIn, fileUploader.single('imageUrl')
     }
   });
 
+// @desc    Deletes logged user
+// @route   POST /profile/delete/:userId
+// @access  Private
   router.post('/delete/:userId',isLoggedIn, async (req, res, next) => {
     const { userId } = req.params;
     try {
