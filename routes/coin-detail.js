@@ -3,6 +3,9 @@ const CoinGecko = require('coingecko-api');
 const User = require('../models/User');
 const CoinGeckoClient = new CoinGecko();
 
+// @desc    Shows detailed information of the required coin
+// @route   GET /coin-detail/"coin name"
+// @access  Private
 router.get('/:coin', isLoggedIn, async (req, res, next) => {  
     const userFromCookie = req.session.currentUser;
     const {coin} = req.params

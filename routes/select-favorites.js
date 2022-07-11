@@ -6,7 +6,9 @@ const isLoggedIn = require('../middlewares');
 const { update } = require("../models/User");
 
 
-
+// @desc    Displays a list of all available coins and a checkbox for each one to select favorites
+// @route   GET /select-favorites
+// @access  Private
 router.get('/', isLoggedIn, async (req, res, next) => {  
     const userFromCookie = req.session.currentUser;   
     try {
@@ -18,6 +20,9 @@ router.get('/', isLoggedIn, async (req, res, next) => {
     }
   });
 
+// @desc    Sends the selected coins to the data base and assigns them to the user
+// @route   POST /select-favorites
+// @access  Private
 router.post('/', isLoggedIn, async (req,res,next)=>{
     const { cryptoCoins } =req.body;
     const userFromCookie = req.session.currentUser;
