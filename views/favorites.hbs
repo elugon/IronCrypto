@@ -20,10 +20,22 @@
         </div>
         <div>
             <p>{{data.market_data.current_price.usd}} $</p>
-            <p>{{data.market_data.price_change_percentage_24h}}%</p>
+            <p class="myDIV">{{data.market_data.price_change_percentage_24h}}%</p>
         </div>    
     </li>
   </a>
+    <script>
+       if({{data.market_data.price_change_percentage_24h}} < 0){
+    myFunction()
+   }
+
+function myFunction() {
+   const element = document.getElementsByClassName("myDIV");
+   for (let i = 0 ; element.length; i++){
+   element[i].style.backgroundColor = "red";
+   }   
+}
+</script>
 {{/each}}
 
 <a href="/select-favorites"><button class="button">Edit your favorites</button></a>

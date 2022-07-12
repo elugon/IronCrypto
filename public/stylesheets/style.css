@@ -263,7 +263,36 @@ a.link {
   border-style: solid;
 }
 
+.error{
+  font-size: 30px;
+  font-weight: bolder;
+}
+
 .error404{
   background: url('/img/bitcoin.gif');
   height: 700px;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;  
+}
+
+.error-text{
+  color: white;
+  font-size: 30px;
+  font-weight: bolder;
+  text-align: center;
+  padding-top: 170px;
+}
+
+.error-homelink{
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+}
+
+.myDIV{
+  background-color: green;
+  color: white;
+  font-weight: bold;
 }
