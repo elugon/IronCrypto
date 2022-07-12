@@ -16,13 +16,23 @@ const commentSchema = new Schema(
     },
     userImage:{
          type:String,
+    },
+    date: {
+      type: String,
+      default: 'Date'
     }
   },
   {
     timestamps: true
   }
 );
- 
+
+commentSchema.pre('save', function(next) {
+  const date = new Date();
+  this.date = date.toString();
+  next()
+});
+
 const Comment = model('Comment', commentSchema);
 
 module.exports = Comment;
