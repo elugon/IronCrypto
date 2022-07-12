@@ -258,5 +258,6 @@ a.link {
 }
 
 .error404{
-  background: url("/img/g3KM.gif") 0 0;
+  background: url("/img/g3KM.gif");
+  height:700px;
 }
