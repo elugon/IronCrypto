@@ -257,7 +257,13 @@ a.link {
 
 }
 
+.chartBox{
+  border-radius: 10px;
+  border-color: black;
+  border-style: solid;
+}
+
 .error404{
-  background: url("/img/g3KM.gif");
-  height:700px;
+  background: url('/img/bitcoin.gif');
+  height: 700px;
 }

@@ -24,9 +24,20 @@ router.get('/', isLoggedIn, async (req, res, next) => {
 // @route   POST /select-favorites
 // @access  Private
 router.post('/', isLoggedIn, async (req,res,next)=>{
-    const { cryptoCoins } =req.body;
+    
     const userFromCookie = req.session.currentUser;
     try {
+        const { cryptoCoins } =req.body;
+
+        if (!cryptoCoins) {
+            res.render("select-favorites", {error: "Please select your favorites coins."});
+            return
+             }
+
+        if (cryptoCoins.length<6) {
+            res.render("select-favorites", {error: "Please select 6 favorites coins."});
+            return
+             }
     
     await User.findByIdAndUpdate(userFromCookie._id,
         {"favorites": []},
