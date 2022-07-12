@@ -10,11 +10,11 @@ const { update } = require("../models/User");
 // @route   GET /select-favorites
 // @access  Private
 router.get('/', isLoggedIn, async (req, res, next) => {  
-    const userFromCookie = req.session.currentUser;   
+    // const userFromCookie = req.session.currentUser;   
     try {
-        const user = await User.findById(userFromCookie._id);
+        //const user = await User.findById(userFromCookie._id);
         const data = await CoinGeckoClient.coins.all(); 
-         res.render('select-favorites',data);        
+        res.render('select-favorites', { data });        
     } catch (error) {
         next(error)
     }
@@ -24,21 +24,19 @@ router.get('/', isLoggedIn, async (req, res, next) => {
 // @route   POST /select-favorites
 // @access  Private
 router.post('/', isLoggedIn, async (req,res,next)=>{
-    
     const userFromCookie = req.session.currentUser;
     try {
         const { cryptoCoins } =req.body;
-
         if (!cryptoCoins) {
-            res.render("select-favorites", {error: "Please select your favorites coins."});
+            const data = await CoinGeckoClient.coins.all(); 
+            res.render("select-favorites", {data, error: "Please select your favorite coins."});
             return
              }
-
-        if (cryptoCoins.length<6) {
-            res.render("select-favorites", {error: "Please select 6 favorites coins."});
+        if (cryptoCoins.length > 6) {
+            const data = await CoinGeckoClient.coins.all(); 
+            res.render("select-favorites", {data, error: "You can only choose up to 6 favorite coins."});
             return
-             }
-    
+        }
     await User.findByIdAndUpdate(userFromCookie._id,
         {"favorites": []},
         {new : true,

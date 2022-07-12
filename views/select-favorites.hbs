@@ -6,13 +6,17 @@
 </div>
 
 <h1>Select up to 6 Coins</h1>
-
+{{#if error}}
+<p style="color:red">{{error}}</p>
+{{/if}}
 <div>
 <form method="POST" action="/select-favorites">
-{{#each data}}
+{{#each data.data}}
 <li class="coin-list"><img src = "{{image.thumb}}" alt="CryptoIcon">{{id}}<input type="checkbox" class="checkboxFavorites" name="cryptoCoins" value={{id}} /></li>
 {{/each}}
+
 <button class="button" type="submit">Select Favorites</button>
+
 </form>
 </div>
 
