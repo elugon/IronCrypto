@@ -4,7 +4,6 @@ const User = require('../models/User');
 const Comment = require('../models/Comment')
 const fileUploader = require('../config/cloudinary.config');
 const CoinGeckoClient = new CoinGecko();
-
 // @desc    Displays de comment section of the coin required.
 // @route   GET /comments/"coin name"
 // @access  Private
@@ -20,7 +19,6 @@ router.get('/:coin', isLoggedIn, async (req, res, next) => {
         next(error)
     }
   });
-
   // @desc    Sends the comment in the form to the data base
   // @route   POST /comments/"coin name"
   // @access  Private  
@@ -41,6 +39,4 @@ router.get('/:coin', isLoggedIn, async (req, res, next) => {
       next(error)
     }
   });
-
-
 module.exports = router;

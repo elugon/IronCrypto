@@ -7,7 +7,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-
 // Routers require
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
@@ -16,9 +15,7 @@ const profileRouter = require ('./routes/profile')
 const favoritesRouter = require ('./routes/favorites')
 const selectFavoritesRouter = require ('./routes/select-favorites')
 const coinDetailRouter = require ('./routes/coin-detail')
-const coinsToSeeRouter = require ('./routes/coins-to-see')
 const commentsRouter = require ('./routes/comments')
-
 const app = express();
 
 // cookies and loggers
@@ -60,7 +57,6 @@ app.use('/favorites', favoritesRouter);
 app.use('/select-favorites', selectFavoritesRouter);
 app.use('/profile', profileRouter);
 app.use('/coin-detail', coinDetailRouter)
-app.use('/coins-to-see', coinsToSeeRouter);
 app.use('/comments', commentsRouter);
 
 

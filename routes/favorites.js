@@ -3,13 +3,10 @@ const CoinGecko = require('coingecko-api');
 const User = require('../models/User');
 const CoinGeckoClient = new CoinGecko();
 const isLoggedIn = require('../middlewares');
-
-
 // @desc    Displays the chosen favorites from the logged user
 // @route   GET /favorites
 // @access  Private
 router.get('/', isLoggedIn, async (req, res, next) => {  
-      
     try {
         const user = req.session.currentUser; 
         //const user = await User.findById(userFromCookie._id);
@@ -19,5 +16,4 @@ router.get('/', isLoggedIn, async (req, res, next) => {
         next(error)
     }
   });
-
 module.exports = router;

@@ -4,7 +4,6 @@ const User = require('../models/User');
 const CoinGeckoClient = new CoinGecko();
 const isLoggedIn = require('../middlewares');
 const fileUploader = require('../config/cloudinary.config');
-
 // @desc    Display the logged user profile
 // @route   GET /profile
 // @access  Private
@@ -13,13 +12,11 @@ router.get('/',isLoggedIn, async (req, res, next) => {
     try {
       const data = await Promise.all(user.favorites.map(async elem=>{return CoinGeckoClient.coins.fetch(elem, {tickers:false, community_data:false, developer_data:false, localization:false, sparkline:true})}));
       const userFromDB = await User.findById(user._id);
-      //res.json(data)
       res.render('auth/profile', {userFromDB,data});
     } catch (error) {
         next(error)
     }    
   });
-
 // @desc    Display a form to edit the user profile
 // @route   GET /profile/edit-profile/:userId
 // @access  Private
@@ -32,7 +29,6 @@ router.get('/edit-profile/:userId', isLoggedIn, async (req, res, next) => {
         next(error)
     }
   });
-
 // @desc    Sends the edited data to the database
 // @route   POST /profile/edit-profile/:userId
 // @access  Private
@@ -54,7 +50,6 @@ router.get('/edit-profile/:userId', isLoggedIn, async (req, res, next) => {
         
     }
   });
-
 // @desc    Deletes logged user
 // @route   POST /profile/delete/:userId
 // @access  Private
@@ -75,7 +70,4 @@ router.get('/edit-profile/:userId', isLoggedIn, async (req, res, next) => {
       next(error);
     }
   })
-  
-
-
 module.exports = router;

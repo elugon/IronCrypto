@@ -4,22 +4,17 @@ const User = require('../models/User');
 const CoinGeckoClient = new CoinGecko();
 const isLoggedIn = require('../middlewares');
 const { update } = require("../models/User");
-
-
 // @desc    Displays a list of all available coins and a checkbox for each one to select favorites
 // @route   GET /select-favorites
 // @access  Private
 router.get('/', isLoggedIn, async (req, res, next) => {  
-    // const userFromCookie = req.session.currentUser;   
     try {
-        //const user = await User.findById(userFromCookie._id);
         const data = await CoinGeckoClient.coins.all(); 
         res.render('select-favorites', { data });        
     } catch (error) {
         next(error)
     }
   });
-
 // @desc    Sends the selected coins to the data base and assigns them to the user
 // @route   POST /select-favorites
 // @access  Private
@@ -41,7 +36,6 @@ router.post('/', isLoggedIn, async (req,res,next)=>{
         {"favorites": []},
         {new : true,
         upsert: true});
-
     let updatedUser = await User.findByIdAndUpdate(userFromCookie._id,
         {$push: {"favorites": cryptoCoins}},
         {new : true,
@@ -49,11 +43,8 @@ router.post('/', isLoggedIn, async (req,res,next)=>{
         });
         req.session.currentUser = updatedUser;
         res.redirect('/favorites');
-    
     } catch (error) {
         next(error)
     }
-   
 })
-
 module.exports = router;
