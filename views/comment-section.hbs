@@ -1,3 +1,6 @@
+<script>
+          </script>
+
 <div class="top-bar">
 <img width="30px" height="30px" src="/img/arrow-back.png"<button onclick="history.back()"></button>
 <div class="logo-name">
@@ -45,6 +48,8 @@
   <div class="comment-block"><img class="profile-img" width="20px" height="20px" src="{{userImage}}"/><p class="commenting-user"><strong>{{commentingUser}}</strong></p> said:</div>
 
   <p>{{comment}}</p>
+
+  <p>Date: {{timeFix createdAt}}</p>
 
   {{/each}} 
 
