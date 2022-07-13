@@ -9,11 +9,11 @@ const CoinGeckoClient = new CoinGecko();
 // @access  Private
 router.get('/:coin', isLoggedIn, async (req, res, next) => {  
     const userFromCookie = req.session.currentUser; 
-    const {coin} = req.params           
-    try {
+    const {coin} = req.params
+       try {
         const user = await User.findById(userFromCookie._id);
         const data = await CoinGeckoClient.coins.fetch(`${coin}`, {tickers:false, community_data:false, developer_data:false, localization:false, sparkline:true});
-        const userComment = await Comment.find({ coinComment: coin }); 
+        const userComment = await Comment.find({ coinComment: coin });
         res.render('comment-section',{user,data,userComment});        
     } catch (error) {
         next(error)

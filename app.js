@@ -49,6 +49,24 @@ app.use(
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+//Helpers
+const hbs = require('hbs');
+
+hbs.registerHelper('timeFix', function(str){
+let string=str.toString();  
+let year=string.slice(11,15);
+let month=string.slice(4,7);
+let day=string.slice(8,10);
+let months={Jan:"January",Feb:"February",Mar:"March",Apr:"April",May:"May",Jun:"June",Jul:"July",Aug:"August",Sep:"September",Oct:"October",Nov:"November",Dec:"December"}
+Object.entries(months).forEach(ele => {
+  const [key, value] = ele;
+  if(key===month){
+    month=value
+  }
+})
+  return `Published on ${month} ${day}, ${year}.`
+  })
+
 // routes intro
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
