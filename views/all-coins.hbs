@@ -10,9 +10,11 @@
 <div class="allcoins">
 {{#each data.data}}
 
-<li class="each-list-coin"><img src = "{{image.thumb}}" alt="CryptoIcon"><a class="coin-list-name" href = "/coin-detail/{{id}}">{{id}}</a></li>
+<li class="each-list-coin">
+    <img src = "{{image.thumb}}" alt="CryptoIcon">
+    <a class="coin-list-name" href = "/coin-detail/{{id}}">{{id}}</a>
+</li>
 
 {{/each}}
-
-<a  href="/coins-to-see"><button class="button">Let's return?</button></a>
 </div>
+<a  href="/coins-to-see"><button class="button">Let's return?</button></a>
