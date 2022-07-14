@@ -67,6 +67,11 @@ Object.entries(months).forEach(ele => {
   return `Published on ${month} ${day}, ${year}.`
   })
 
+hbs.registerHelper('capitalizeFirstLetter', function(str){
+  const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
+  return capitalized;
+    })
+     
 // routes intro
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
