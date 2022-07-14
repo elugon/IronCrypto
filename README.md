@@ -2,12 +2,12 @@
 
 ## Description
 
-This is a project developed by XXX and YYY as the project for the second module at Ironhack. The application...
+This is a project developed by Alberto Quintero and Elu Gonzalez as the project for the second module at Ironhack. The application was built to deliver live information about crypto currencies the its users.
 
 ---
 
 ## Wireframes
-![](docs/IronPictureFigma.png)
+![](/img/IronCryptoLayout.png)
 
 ---
 
