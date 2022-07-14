@@ -16,11 +16,7 @@ const commentSchema = new Schema(
     },
     userImage:{
          type:String,
-    }/*,
-    date: {
-      type: String,
-      default: 'Date'
-    }*/
+    },
   },
   {
     timestamps: true
