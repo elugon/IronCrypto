@@ -7,7 +7,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-
 // Routers require
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
@@ -16,9 +15,7 @@ const profileRouter = require ('./routes/profile')
 const favoritesRouter = require ('./routes/favorites')
 const selectFavoritesRouter = require ('./routes/select-favorites')
 const coinDetailRouter = require ('./routes/coin-detail')
-const coinsToSeeRouter = require ('./routes/coins-to-see')
 const commentsRouter = require ('./routes/comments')
-
 const app = express();
 
 // cookies and loggers
@@ -52,6 +49,29 @@ app.use(
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+//Helpers
+const hbs = require('hbs');
+
+hbs.registerHelper('timeFix', function(str){
+let string=str.toString();  
+let year=string.slice(11,15);
+let month=string.slice(4,7);
+let day=string.slice(8,10);
+let months={Jan:"January",Feb:"February",Mar:"March",Apr:"April",May:"May",Jun:"June",Jul:"July",Aug:"August",Sep:"September",Oct:"October",Nov:"November",Dec:"December"}
+Object.entries(months).forEach(ele => {
+  const [key, value] = ele;
+  if(key===month){
+    month=value
+  }
+})
+  return `Published on ${month} ${day}, ${year}.`
+  })
+
+hbs.registerHelper('capitalizeFirstLetter', function(str){
+  const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
+  return capitalized;
+    })
+     
 // routes intro
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
@@ -60,7 +80,6 @@ app.use('/favorites', favoritesRouter);
 app.use('/select-favorites', selectFavoritesRouter);
 app.use('/profile', profileRouter);
 app.use('/coin-detail', coinDetailRouter)
-app.use('/coins-to-see', coinsToSeeRouter);
 app.use('/comments', commentsRouter);
 
 

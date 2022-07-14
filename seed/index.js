@@ -1,12 +1,9 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-
-// Add the model and array you want to seed
-
 mongoose.connect(process.env.MONGO_URL)
   .then(x => console.log(`Connected to ${x.connection.name}`))
   .then(() => {
-    return // Code to create elements in the DB
+    return
   })
   .then(() => {
     console.log('Seed done 🌱');

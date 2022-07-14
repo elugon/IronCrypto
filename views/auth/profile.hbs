@@ -7,7 +7,7 @@
 
 <div><img class="profile-img" width="70px" height="70px" src= {{userFromDB.imageUrl}} alt=""/></div>
 
-<h1>Welcome {{userFromDB.username}}</h1>
+<h1>Welcome {{capitalizeFirstLetter userFromDB.username}}</h1>
 
 <div class="profile-info">
 <p><strong>This is your profile page</strong></p>
@@ -24,17 +24,31 @@
         <div class="card-first-group">
             <img width="35px" height="35px" src = "{{data.image.thumb}}" />
             <div class="card-second-group">
-                <p class="coin-name" >{{data.id}}</p>
-                <p class="coin-name">{{data.symbol}}</p>
+                <p class="coin-name" >{{capitalizeFirstLetter data.id}}</p>
+                <p class="coin-name">{{capitalizeFirstLetter data.symbol}}</p>
             </div>
         </div>
         <div>
             <p>{{data.market_data.current_price.usd}} $</p>
-            <p>{{data.market_data.price_change_percentage_24h}}%</p>
+            <p class="myDIV">{{data.market_data.price_change_percentage_24h}}%</p>
         </div>    
     </li>
   </a>
+  <script>
+       if({{data.market_data.price_change_percentage_24h}} < 0){
+    myFunction()
+   }
+
+function myFunction() {
+   const element = document.getElementsByClassName("myDIV");
+   for (let i = 0 ; element.length; i++){
+   element[i].style.backgroundColor = "red";
+   }   
+}
+</script>
 {{/each}}
+
+
 
 <a href="/profile/edit-profile/{{this.userFromDB._id}}"><button class="button">Edit Profile</button></a>
 

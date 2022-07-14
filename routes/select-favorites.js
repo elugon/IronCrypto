@@ -4,46 +4,38 @@ const User = require('../models/User');
 const CoinGeckoClient = new CoinGecko();
 const isLoggedIn = require('../middlewares');
 const { update } = require("../models/User");
-
-
 // @desc    Displays a list of all available coins and a checkbox for each one to select favorites
 // @route   GET /select-favorites
 // @access  Private
 router.get('/', isLoggedIn, async (req, res, next) => {  
-    const userFromCookie = req.session.currentUser;   
     try {
-        const user = await User.findById(userFromCookie._id);
         const data = await CoinGeckoClient.coins.all(); 
-         res.render('select-favorites',data);        
+        res.render('select-favorites', { data });        
     } catch (error) {
         next(error)
     }
   });
-
 // @desc    Sends the selected coins to the data base and assigns them to the user
 // @route   POST /select-favorites
 // @access  Private
 router.post('/', isLoggedIn, async (req,res,next)=>{
-    
     const userFromCookie = req.session.currentUser;
     try {
         const { cryptoCoins } =req.body;
-
         if (!cryptoCoins) {
-            res.render("select-favorites", {error: "Please select your favorites coins."});
+            const data = await CoinGeckoClient.coins.all(); 
+            res.render("select-favorites", {data, error: "Please select your favorite coins."});
             return
              }
-
-        if (cryptoCoins.length<6) {
-            res.render("select-favorites", {error: "Please select 6 favorites coins."});
+        if (cryptoCoins.length > 6) {
+            const data = await CoinGeckoClient.coins.all(); 
+            res.render("select-favorites", {data, error: "You can only choose up to 6 favorite coins."});
             return
-             }
-    
+        }
     await User.findByIdAndUpdate(userFromCookie._id,
         {"favorites": []},
         {new : true,
         upsert: true});
-
     let updatedUser = await User.findByIdAndUpdate(userFromCookie._id,
         {$push: {"favorites": cryptoCoins}},
         {new : true,
@@ -51,11 +43,8 @@ router.post('/', isLoggedIn, async (req,res,next)=>{
         });
         req.session.currentUser = updatedUser;
         res.redirect('/favorites');
-    
     } catch (error) {
         next(error)
     }
-   
 })
-
 module.exports = router;

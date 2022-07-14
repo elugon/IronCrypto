@@ -5,13 +5,13 @@
 </div>
 </div>
 
-<h1>{{data.data.id}} details</h1>
+<h1><img width="35px" height="35px" src = "{{data.data.image.thumb}}" />{{capitalizeFirstLetter data.data.id}} details:</h1>
 
-<p> The current price of {{data.data.id}} is: {{data.data.market_data.current_price.usd}}$</p>
+<p> <strong> Current price of {{capitalizeFirstLetter data.data.id}} is:</strong> {{data.data.market_data.current_price.usd}}$</p>
 
-<p> The Market cap is: {{data.data.market_data.market_cap.usd}}$</p>
+<p> <strong> The Market cap is: </strong> {{data.data.market_data.market_cap.usd}}$</p>
 
-<p>Price change percentage in the last 24h: {{data.data.market_data.price_change_percentage_24h}}%</p>
+<p> <strong> Price change percentage in the last 24h: </strong> {{data.data.market_data.price_change_percentage_24h}}%</p>
 
 <p class="last-days">Last 7 days</p>
 <div class="chartBox">
