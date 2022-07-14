@@ -60,13 +60,14 @@ router.post('/signup', async (req, res, next) => {
 // @access  Public
 router.post('/login', async (req, res, next) => {
   const { email, password } = req.body;
-  if (!password || !email) {
-    res.render("auth/login", {
-      error: "All fields are mandatory. Please fill them before submitting.",
-    });
-    return;
-  }
+  
   try {
+    if (!password || !email) {
+      res.render("auth/login", {
+        error: "All fields are mandatory. Please fill them before submitting.",
+      });
+      return;
+    }
     // Remember to assign user to session cookie:
     const user = await User.findOne({ email: email });
     if (!user) {
