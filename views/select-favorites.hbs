@@ -12,7 +12,7 @@
 <div>
 <form method="POST" action="/select-favorites">
 {{#each data.data}}
-<li class="coin-list"><img src = "{{image.thumb}}" alt="CryptoIcon">{{id}}<input type="checkbox" class="checkboxFavorites" name="cryptoCoins" value={{id}} /></li>
+<li class="coin-list"><img src = "{{image.thumb}}" alt="CryptoIcon">{{capitalizeFirstLetter id}}<input type="checkbox" class="checkboxFavorites" name="cryptoCoins" value={{id}} /></li>
 {{/each}}
 
 <button class="button" type="submit">Select Favorites</button>
