@@ -1,7 +1,6 @@
 const { Schema, model } = require('mongoose');
  
 const commentSchema = new Schema(
-  // Add whichever fields you need for your app
   {
     comment: {
       type: String,
@@ -22,12 +21,6 @@ const commentSchema = new Schema(
     timestamps: true
   }
 );
-/*
-commentSchema.pre('save', function(next) {
-  const date = new Date();
-  this.date = date.toString();
-  next()
-});*/
 
 const Comment = model('Comment', commentSchema);
 
