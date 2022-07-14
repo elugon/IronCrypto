@@ -36,13 +36,16 @@ npm run start
 What can the user do with the app?
 - User can sign up and create and account
 - User can login
-- User can log ou
-- User can create ...
+- User can log out
+- User can create a favorite coins list
+- Comment on each coin
+- Edit his profile or favorite coins
 
 ## User stories (Backlog)
 
 - User can upload a profile picture
-- User can ...
+- User can require live data
+- 
 
 ---
 
@@ -71,12 +74,46 @@ const userSchema = new Schema(
     hashedPassword: {
       type: String,
       required: [true, 'Password is required.']
-    }
+    },
+    favorites:{
+      type: [String]
+    },
+    imageUrl:{
+      type: String,
+      default: '/img/default-user.png'
+    },
+
   },
   {
     timestamps: true
   }
 );
+
+Comments:
+
+const commentSchema = new Schema(
+  {
+    comment: {
+      type: String,
+      trim: true,
+      required: [true, 'Comment is required.'],      
+    },
+    coinComment: {
+        type: String,              
+      },
+    commentingUser:{
+        type:String
+    },
+    userImage:{
+         type:String,
+    },
+  },
+  {
+    timestamps: true
+  }
+);
+
+
 ```
 
 ---
@@ -90,16 +127,22 @@ const userSchema = new Schema(
 | Login | POST | /auth/login   | No | { email, password }  | /         |
 | Signup | GET    | /auth/signup | No |                      |           |
 | Signup | POST | /auth/signup   | No | { username, email, password }  | /auth/login  |
-| New movie  | GET    | /movies/new | Yes |                      |           |
-| New movie | POST | /movies/new   | Yes | { title, cast, genre }  | /movies/:movieId   |
+| Profile  | GET    | /profile | Yes |
+| all-coins  | GET    | /all-coins | Yes |                      |           |
+| coin-detail | GET | /coin-detail/"coin"   | Yes |   |   |
+| select-favorites | GET | /select-favorites   | Yes |  |   |
+| select-favorites | POST | /select-favorites   | Yes | {["favorite coins"]  }  | /favorites  |
+| favorites | GET | /favorites   | Yes |  |   |
+| comments | GET | /comments/"coin name"  | Yes | | /comments/"coin name"  |
+| comments | POST | /comments/"coin name"  | Yes | { comment, coinComment, commentingUser, userImage }  | /comments/"coin name"  |
 
 ---
 
 ## Useful links
 
-- [Github Repo](https://github.com/alebausa/module2-boilerplate)
+- [Github Repo] (https://github.com/elugon/IronCrypto.git)
 - [Deployed version]()
-- [Presentation slides](https://www.slides.com)
+- [Presentation slides](https://slides.com/albertoquintero-1/desk)
 
 
 
