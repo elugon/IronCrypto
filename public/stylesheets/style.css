@@ -189,11 +189,13 @@ div.allcoins {
   justify-content: flex-start;
   padding: 5px;
   width: 47%;
+  color: #028ee6;
 }
 
 .coin-list-name {
   text-decoration: none;
   padding: 7px;
+  color:#028ee6
 }
 
 .each-coin {
