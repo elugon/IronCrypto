@@ -1,8 +1,8 @@
-# App name
+# Ironcrypto
 
 ## Description
 
-This is a project developed by XXX and YYY as the project for the second module at Ironhack. The application...
+This is a project developed by Alberto Quintero and Elu Gonzalez as the project for the second module at Ironhack. The application helps you to keep track of your favorite cryptocoins so you can make the best investments.
 
 ---
 
@@ -19,6 +19,9 @@ PORT=3000
 MONGO_URL='mongodb://localhost/dbName'
 SESSION_SECRET='SecretOfYourOwnChoosing'
 NODE_ENV='development'
+CLOUDINARY_NAME='dtxouyldc'
+CLOUDINARY_KEY='379198942478625'
+CLOUDINARY_SECRET='SBvoadYrsQ7Demg42rCXXe-7uHc'
 ```
 Then, run:
 ```bash
@@ -36,19 +39,17 @@ npm run start
 What can the user do with the app?
 - User can sign up and create and account
 - User can login
-- User can log ou
-- User can create ...
+- User can log out
+- User can create a favorite coins list
+- Comment on each coin
+- Edit his profile or favorite coins
 
 ## User stories (Backlog)
 
 - User can upload a profile picture
-- User can ...
-
----
+- User can require live data
 
 ## Models
-
-
 
 User:
 
@@ -71,12 +72,46 @@ const userSchema = new Schema(
     hashedPassword: {
       type: String,
       required: [true, 'Password is required.']
-    }
+    },
+    favorites:{
+      type: [String]
+    },
+    imageUrl:{
+      type: String,
+      default: '/img/default-user.png'
+    },
+
   },
   {
     timestamps: true
   }
 );
+
+Comments:
+
+const commentSchema = new Schema(
+  {
+    comment: {
+      type: String,
+      trim: true,
+      required: [true, 'Comment is required.'],      
+    },
+    coinComment: {
+        type: String,              
+      },
+    commentingUser:{
+        type:String
+    },
+    userImage:{
+         type:String,
+    },
+  },
+  {
+    timestamps: true
+  }
+);
+
+
 ```
 
 ---
@@ -90,16 +125,22 @@ const userSchema = new Schema(
 | Login | POST | /auth/login   | No | { email, password }  | /         |
 | Signup | GET    | /auth/signup | No |                      |           |
 | Signup | POST | /auth/signup   | No | { username, email, password }  | /auth/login  |
-| New movie  | GET    | /movies/new | Yes |                      |           |
-| New movie | POST | /movies/new   | Yes | { title, cast, genre }  | /movies/:movieId   |
+| Profile  | GET    | /profile | Yes |
+| all-coins  | GET    | /all-coins | Yes |                      |           |
+| coin-detail | GET | /coin-detail/"coin"   | Yes |   |   |
+| select-favorites | GET | /select-favorites   | Yes |  |   |
+| select-favorites | POST | /select-favorites   | Yes | {["favorite coins"]  }  | /favorites  |
+| favorites | GET | /favorites   | Yes |  |   |
+| comments | GET | /comments/"coin name"  | Yes | | /comments/"coin name"  |
+| comments | POST | /comments/"coin name"  | Yes | { comment, coinComment, commentingUser, userImage }  | /comments/"coin name"  |
 
 ---
 
 ## Useful links
 
-- [Github Repo](https://github.com/alebausa/module2-boilerplate)
-- [Deployed version]()
-- [Presentation slides](https://www.slides.com)
+- [Github Repo] (https://github.com/elugon/IronCrypto.git)
+- [Deployed version](https://iron-crypto.herokuapp.com/)
+- [Presentation slides](https://slides.com/albertoquintero-1/desk)
 
 
 
