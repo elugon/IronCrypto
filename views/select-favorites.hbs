@@ -13,7 +13,7 @@
 <form method="POST" action="/select-favorites">
 <div class="allcoins">
 {{#each data.data}}
-<li class="each-list-coin"><img src = "{{image.thumb}}" alt="CryptoIcon"><p class="coin-list-name">{{id}}</p><input type="checkbox" class="checkboxFavorites" name="cryptoCoins" value={{id}} /></li>
+<li class="each-list-coin"><img src = "{{image.thumb}}" alt="CryptoIcon"><p class="coin-list-name">{{capitalizeFirstLetter id}}</p><input type="checkbox" class="checkboxFavorites" name="cryptoCoins" value={{id}} /></li>
 {{/each}}
 </div>
 
