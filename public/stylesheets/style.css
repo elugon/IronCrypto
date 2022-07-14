@@ -46,16 +46,16 @@ h1 {
   font-size: 32px;
 }
 
-.get-started{
-  display: flex;  
-  align-items: center;  
-  padding: 5px;  
+.get-started {
+  display: flex;
+  align-items: center;
+  padding: 5px;
   margin-bottom: 0px;
   font-size: 20px;
   text-decoration: none;
 }
 
-.get-started-text{
+.get-started-text {
   margin-left: 7px;
   margin-right: 7px;
   text-decoration: none;
@@ -65,36 +65,36 @@ h1 {
 
 
 
-.initial-statement{
+.initial-statement {
   font-size: 30px;
   font-weight: bolder;
   margin-top: 0px;
 }
 
-.second-statement{
+.second-statement {
   font-size: 15px;
 }
 
-.all-subtitles{
-  display:flex;
+.all-subtitles {
+  display: flex;
   flex-direction: column;
   margin-top: 50px;
 }
 
-.subtitle-group{
+.subtitle-group {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
 }
 
-.home-subtitle{
+.home-subtitle {
   font-weight: bolder;
   font-size: 20px;
   margin-top: 20px;
 }
 
-.sub-description{
+.sub-description {
   text-align: center;
 }
 
@@ -133,10 +133,10 @@ a.link {
   height: 50px;
 }
 
-.logo-name{
+.logo-name {
   display: flex;
   align-items: center;
-  margin-left: 20px;  
+  margin-left: 20px;
 }
 
 .top-bar {
@@ -144,7 +144,7 @@ a.link {
   align-items: center;
 }
 
-.home-logo{
+.home-logo {
   margin-left: 5px;
 
 }
@@ -173,18 +173,22 @@ a.link {
   /* margin-top: 15px; */
 }
 
-.allcoins {
+div.allcoins {
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
   justify-content: space-between;
 }
 
 .each-list-coin {
+  background-color: rgb(216, 242, 251);
+  padding: 15px;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 5px;
-  width: 100%;  
+  width: 47%;
 }
 
 .coin-list-name {
@@ -206,22 +210,22 @@ a.link {
   padding: 0px;
 }
 
-.card{
+.card {
   text-decoration: none;
   color: black;
 }
 
-.card-first-group{
+.card-first-group {
   display: flex;
   align-items: center;
 }
 
-.card-second-group{
+.card-second-group {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  margin-left: 10px;  
+  margin-left: 10px;
 }
 
 .coin-list {
@@ -235,20 +239,20 @@ a.link {
   display: none;
 }
 
-.profile-img{
-  border-radius: 50%;  
+.profile-img {
+  border-radius: 50%;
 }
 
-.profile-info{
+.profile-info {
   font-size: 16px;
 }
 
-.commenting-user{
+.commenting-user {
   padding-right: 5px;
   padding-left: 5px;
 }
 
-.comment-block{
+.comment-block {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -257,26 +261,26 @@ a.link {
 
 }
 
-.chartBox{
+.chartBox {
   border-radius: 10px;
   border-color: black;
   border-style: solid;
 }
 
-.error{
+.error {
   font-size: 30px;
   font-weight: bolder;
 }
 
-.error404{
+.error404 {
   background: url('/img/bitcoin.gif');
   height: 700px;
   background-repeat: no-repeat;
   background-position: center;
-  text-align: center;  
+  text-align: center;
 }
 
-.error-text{
+.error-text {
   color: white;
   font-size: 30px;
   font-weight: bolder;
@@ -284,14 +288,14 @@ a.link {
   padding-top: 170px;
 }
 
-.error-homelink{
+.error-homelink {
   font-size: 20px;
   text-decoration: none;
   color: white;
   font-weight: bolder;
 }
 
-.myDIV{
+.myDIV {
   background-color: green;
   color: white;
   font-weight: bold;
