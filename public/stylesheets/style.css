@@ -173,10 +173,15 @@ a.link {
   /* margin-top: 15px; */
 }
 
+
+
 .allcoins {
+  width: 20%;
+  height: 40%;  
+  padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;  
 }
 
 .each-list-coin {
@@ -190,6 +195,7 @@ a.link {
 .coin-list-name {
   text-decoration: none;
   padding: 7px;
+  color:#028ee6
 }
 
 .each-coin {
