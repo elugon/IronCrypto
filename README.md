@@ -1,8 +1,9 @@
-# App name
+# Ironcrypto
 
 ## Description
 
-This is a project developed by Alberto Quintero and Elu Gonzalez as the project for the second module at Ironhack. The application was built to deliver live information about crypto currencies the its users.
+
+This is a project developed by Alberto Quintero and Elu Gonzalez as the project for the second module at Ironhack. The application helps you to keep track of your favorite cryptocoins so you can make the best investments.
 
 ---
 
@@ -19,6 +20,9 @@ PORT=3000
 MONGO_URL='mongodb://localhost/dbName'
 SESSION_SECRET='SecretOfYourOwnChoosing'
 NODE_ENV='development'
+CLOUDINARY_NAME='dtxouyldc'
+CLOUDINARY_KEY='379198942478625'
+CLOUDINARY_SECRET='SBvoadYrsQ7Demg42rCXXe-7uHc'
 ```
 Then, run:
 ```bash
@@ -45,13 +49,8 @@ What can the user do with the app?
 
 - User can upload a profile picture
 - User can require live data
-- 
-
----
 
 ## Models
-
-
 
 User:
 
@@ -141,7 +140,7 @@ const commentSchema = new Schema(
 ## Useful links
 
 - [Github Repo] (https://github.com/elugon/IronCrypto.git)
-- [Deployed version]()
+- [Deployed version](https://iron-crypto.herokuapp.com/)
 - [Presentation slides](https://slides.com/albertoquintero-1/desk)
 
 
