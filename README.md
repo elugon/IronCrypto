@@ -2,12 +2,13 @@
 
 ## Description
 
+
 This is a project developed by Alberto Quintero and Elu Gonzalez as the project for the second module at Ironhack. The application helps you to keep track of your favorite cryptocoins so you can make the best investments.
 
 ---
 
 ## Wireframes
-![](docs/IronPictureFigma.png)
+![](/img/IronCryptoLayout.png)
 
 ---
 
