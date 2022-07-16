@@ -8,7 +8,7 @@ This is a project developed by Alberto Quintero and Elu Gonzalez as the project 
 ---
 
 ## Wireframes
-![](/img/IronCryptoLayout.png)
+![](img/IronCryptoLayout.png)
 
 ---
 
