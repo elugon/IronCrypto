@@ -5,16 +5,18 @@
 </div>
 </div>
 
-<div><img class="profile-img" width="70px" height="70px" src= {{userFromDB.imageUrl}} alt=""/></div>
+<div class="home">
+    <img class="profile-img" width="70px" height="70px" src= {{userFromDB.imageUrl}} alt=""/>
 
-<h1>Welcome {{capitalizeFirstLetter userFromDB.username}}</h1>
+    <h1>Welcome {{capitalizeFirstLetter userFromDB.username}}</h1>
 
-<div class="profile-info">
-<p><strong>This is your profile page</strong></p>
+    <div class="profile-info">
+    <p><strong>This is your profile page</strong></p>
 
-<p><strong>Your current email is</strong> {{userFromDB.email}}</p>
+    <p><strong>Your current email is</strong> {{userFromDB.email}}</p>
 
-<p><strong>Your favorite coins are:</strong> </p>
+    <p><strong>Your favorite coins are:</strong> </p>
+</div>
 </div>
 
 {{#each data}}

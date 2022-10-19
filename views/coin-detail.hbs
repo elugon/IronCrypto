@@ -5,7 +5,9 @@
 </div>
 </div>
 
-<h1><img width="35px" height="35px" src = "{{data.data.image.thumb}}" />{{capitalizeFirstLetter data.data.id}} details:</h1>
+<div class="home">
+
+<h2><img width="35px" height="35px" src = "{{data.data.image.thumb}}" />{{capitalizeFirstLetter data.data.id}} details:</h2>
 
 <p> <strong> Current price of {{capitalizeFirstLetter data.data.id}} is:</strong> {{data.data.market_data.current_price.usd}}$</p>
 
@@ -18,47 +20,50 @@
     <canvas id="myChart"></canvas>
 </div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-const ctx = document.getElementById('myChart').getContext('2d');
-const myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
-        datasets: [{
-            data: [{{sparkline}}],
-            backgroundColor:'#33B1FF',
-            borderColor:'#33B1FF',
-            borderWidth: 2,
-            pointRadius:0
-        }]
-    },
-    options: {
-        scales: {
-            x:{
-                beginAtZero: false,
-                display:false
-            },
-            y: {
-                beginAtZero: false,
-                display:true,
-                
-               
-            }
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+            datasets: [{
+                data: [{{sparkline}}],
+                backgroundColor:'#33B1FF',
+                borderColor:'#33B1FF',
+                borderWidth: 2,
+                pointRadius:0
+            }]
         },
-        plugins:{
-            legend:{
-                display:false,
-                 }
+        options: {
+            scales: {
+                x:{
+                    beginAtZero: false,
+                    display:false
+                },
+                y: {
+                    beginAtZero: false,
+                    display:true,
+                    
+                
+                }
+            },
+            plugins:{
+                legend:{
+                    display:false,
+                    }
+            }
         }
-    }
-});
-</script>
+    });
+    </script>
+
+
 
 <a  href="/all-coins"><button class="button">Back to all coin list</button></a>
 
 <a  href="/comments/{{data.data.id}}"><button class="button">Join the discussion</button></a>
 
+
+</div>
 
 

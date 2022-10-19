@@ -217,6 +217,9 @@ div.allcoins {
   align-items: center;
   justify-content: space-between;
   border-top: solid 1px lightgray;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .coin-name {
@@ -228,7 +231,7 @@ div.allcoins {
   text-decoration: none;
   color: black;
   padding: 2px 0px;
-}
+  }
 
 .card-first-group {
   display: flex;
@@ -281,6 +284,11 @@ div.allcoins {
   border-radius: 10px;
   border-color: black;
   border-style: solid;
+  width: 75%;
+  height: 75%;
+  margin: 1em;
+  max-width: 650px;
+  max-height: 650px;
 }
 
 .error {
@@ -325,4 +333,9 @@ div.allcoins {
  margin-left: auto;
  margin-right: auto;
  text-align: center;
+}
+
+.scriptSize{
+  width: 50px;
+  height: 50px;
 }
