@@ -5,7 +5,9 @@
 </div>
 </div>
 
-<h1>Welcome to your favorite coins</h1>
+<div class="home">
+    <h1>Welcome to your favorite coins</h1>
+</div>
 
 {{#each data}}
 <a class="card" href = "/coin-detail/{{data.id}}">
@@ -38,4 +40,6 @@ function myFunction() {
 </script>
 {{/each}}
 
-<a href="/select-favorites"><button class="button">Edit your favorites</button></a>
+<div class="home">
+    <a href="/select-favorites"><button class="button">Edit your favorites</button></a>
+</div>

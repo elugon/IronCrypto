@@ -5,29 +5,31 @@
 </div>
 </div>
 
-<h1>Login | Ironcrypto</h1>
+<div class="home">
+  <h1>Login | Ironcrypto</h1>
 
-<div class="form">
-  <form action="/auth/login" method="POST">
+  <div class="form">
+    <form action="/auth/login" method="POST">
 
-  <div class="input"> 
-    <label>Email</label>
-    <input class="formbox" type="email" name="email" placeholder="Your email..." />
-  </div>
-    
-  <div class="input"> 
-    <label>Password</label>
-    <input class="formbox" type="password" name="password" placeholder="Type your password..." />
-  </div>
-     
-    {{#if error}}
-    <p style="color:rgb(218, 90, 90)">{{ error }}</p>
-    {{/if}}
-    
-    <div id="login">
-    <button class="button" type="submit">Login</button>
+    <div class="input"> 
+      <label>Email</label>
+      <input class="formbox" type="email" name="email" placeholder="Your email..." />
     </div>
-    <a class="link" href="/auth/signup">Don't have an account yet?</a>
+      
+    <div class="input"> 
+      <label>Password</label>
+      <input class="formbox" type="password" name="password" placeholder="Type your password..." />
+    </div>
+      
+      {{#if error}}
+      <p style="color:rgb(218, 90, 90)">{{ error }}</p>
+      {{/if}}
+      
+      <div id="login">
+      <button class="button" type="submit">Login</button>
+      </div>
+      <a class="link" href="/auth/signup">Don't have an account yet?</a>
 
-  </form>
+    </form>
+  </div>
 </div>

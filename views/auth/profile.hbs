@@ -49,10 +49,9 @@ function myFunction() {
 {{/each}}
 
 
+<div class="home">
+    <a href="/profile/edit-profile/{{this.userFromDB._id}}"><button class="button">Edit Profile</button></a>
+    <form class= "form" action="/auth/logout" method="POST"><button class="button" type="submit">Log Out</button></form>
+</div>
 
-<a href="/profile/edit-profile/{{this.userFromDB._id}}"><button class="button">Edit Profile</button></a>
-
-
-
-<form class= "form" action="/auth/logout" method="POST"><button class="button" type="submit">Log Out</button></form>
 
